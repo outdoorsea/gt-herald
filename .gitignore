@@ -1,0 +1,4 @@
+gt-herald
+*.exe
+.env
+state.json

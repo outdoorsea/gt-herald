@@ -1,0 +1,43 @@
+# gt-herald configuration
+#
+# Slack connection — set token via environment variable
+slack:
+  # Bot token (xoxb-...) — needs chat:write scope
+  # For Phase 1 MVP, webhook_url is sufficient
+  token_env: GT_HERALD_SLACK_TOKEN
+  webhook_url_env: GT_HERALD_SLACK_WEBHOOK
+
+# Gas Town connection
+gastown:
+  root: ~/Documents/gt
+  # dolt_port: 3307  # Phase 2+
+
+# Channel routing
+channels:
+  alerts: "#gt-alerts"
+  default: "#gt-ops"
+  rigs:
+    gastown: "#gt-gastown"
+    # vitalitek: "#gt-vitalitek"
+    # faultline: "#gt-faultline"
+
+# Event filters
+filters:
+  townlog:
+    include:
+      - spawn
+      - done
+      - crash
+      - session_death
+      - mass_death
+      - handoff
+      - escalation_sent
+
+# Rate limiting
+rate_limit:
+  per_channel: 10  # max messages per channel per minute
+  burst: 5
+  batch_window: 30s
+
+# State persistence (cursor positions survive restarts)
+state_file: state.json
