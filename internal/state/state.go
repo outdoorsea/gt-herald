@@ -9,8 +9,9 @@ import (
 
 // State tracks cursor positions for gt-herald event sources.
 type State struct {
-	TownlogOffset int64     `json:"townlog_offset"`
-	UpdatedAt     time.Time `json:"updated_at"`
+	TownlogOffset int64              `json:"townlog_offset"`
+	BeadsCursors  map[string]string  `json:"beads_cursors,omitempty"` // rig → last updated_at (RFC3339)
+	UpdatedAt     time.Time          `json:"updated_at"`
 }
 
 // Load reads state from a JSON file. Returns zero state if file doesn't exist.

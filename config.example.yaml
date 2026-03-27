@@ -10,7 +10,7 @@ slack:
 # Gas Town connection
 gastown:
   root: ~/Documents/gt
-  # dolt_port: 3307  # Phase 2+
+  dolt_port: 3307  # Enable beads polling (Phase 2)
 
 # Channel routing
 channels:
@@ -18,8 +18,8 @@ channels:
   default: "#gt-ops"
   rigs:
     gastown: "#gt-gastown"
-    # vitalitek: "#gt-vitalitek"
-    # faultline: "#gt-faultline"
+    vitalitek: "#gt-vitalitek"
+    faultline: "#gt-faultline"
 
 # Event filters
 filters:
@@ -32,6 +32,12 @@ filters:
       - mass_death
       - handoff
       - escalation_sent
+  beads:
+    include:
+      - bead_closed
+      - bead_claimed
+      - bead_blocked
+      - bead_opened
 
 # Rate limiting
 rate_limit:

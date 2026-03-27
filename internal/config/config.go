@@ -42,6 +42,12 @@ type ChannelConfig struct {
 // FilterConfig holds event filter configuration.
 type FilterConfig struct {
 	Townlog TownlogFilter `yaml:"townlog"`
+	Beads   BeadsFilter   `yaml:"beads"`
+}
+
+// BeadsFilter specifies which bead state transitions to include.
+type BeadsFilter struct {
+	Include []string `yaml:"include"` // bead_closed, bead_claimed, bead_blocked, bead_opened
 }
 
 // TownlogFilter specifies which townlog event types to include.

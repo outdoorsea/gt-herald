@@ -94,6 +94,14 @@ func emojiFor(eventType string) string {
 		return ":knife:"
 	case "wake":
 		return ":sunny:"
+	case "bead_closed":
+		return ":ballot_box_with_check:"
+	case "bead_claimed":
+		return ":construction:"
+	case "bead_blocked":
+		return ":no_entry_sign:"
+	case "bead_opened":
+		return ":bug:"
 	default:
 		return ":information_source:"
 	}
